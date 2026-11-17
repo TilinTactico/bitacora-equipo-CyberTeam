@@ -4,6 +4,8 @@ from flask import Flask, jsonify
 
 from db import init_app
 
+from rutas.activos import bp as activos_bp
+
 
 def create_app():
     """Crea la aplicación e inicializa la base de datos."""
@@ -22,6 +24,7 @@ def create_app():
 
 
 app = create_app()
+app.register_blueprint(activos_bp)
 
 if __name__ == "__main__":
     # El modo depuración es solo para desarrollo local.
